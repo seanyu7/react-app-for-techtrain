@@ -1,4 +1,14 @@
+import { useEffect } from "react";
+
 function App() {
+  const initialURL = "https://virtserver.swaggerhub.com/INFO_3/BulletinBoardApplication/1.0.0 ";
+  
+  useEffect(() => {
+    const fetchSledData = async () => {
+    let res = await getAllSledData(initialURL);
+  };
+}, []);
+  
   return <div className="App">home</div>;
 }
 
