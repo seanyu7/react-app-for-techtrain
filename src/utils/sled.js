@@ -3,5 +3,6 @@ export const getAllSledData = (url) => {
     fetch(url)
       .then((res) => res.jason())
       .then((data) => resolve(data));
+     
   });
 };
