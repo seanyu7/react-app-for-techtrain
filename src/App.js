@@ -19,6 +19,7 @@ function App() {
     <div className="App">
       {loading ? (
         <h1>loading now...</h1>
+        //asyncにて非同期処理した処理が正常に完了するまではこのLoading now という文字が表示される。終わり次第下記内容のコードが走りsuccessfully loadedと表示される。le
       ) : (
         <>
           <h1>Successfully downloaded</h1>
