@@ -1,18 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAllSledData } from "./utils/sled";
 
 function App() {
-  const initialURL = "https://virtserver.swaggerhub.com/INFO_3/BulletinBoardApplication/1.0.0/threads/10/posts?offset=11";
-  
+  const initialURL =
+    "http://railway-react-bulletin-board.herokuapp.com";
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchSledData = async () => {
-    let res = await getAllSledData(initialURL);
-    console.log(res);
-  };
-  fetchSledData();
-}, []);
-  
-  return <div className="App">home</div>;
+      let res = await getAllSledData(initialURL);
+      console.log(res.posts);
+      setLoading(false);
+    };
+    fetchSledData();
+  }, []);
+
+  return (
+    <div className="App">
+      {loading ? (
+        <h1>loading now...</h1>
+      ) : (
+        <>
+          <h1>Successfully downloaded</h1>
+        </>
+      )}
+    </div>
+  );
 }
 
 export default App;
