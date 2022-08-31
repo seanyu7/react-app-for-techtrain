@@ -4,6 +4,7 @@ import { getAllSledData } from "./utils/sled";
 function App() {
   const initialURL =
     "http://railway-react-bulletin-board.herokuapp.com";
+    //this URL cannot activate and cannnot get the info from here.
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
