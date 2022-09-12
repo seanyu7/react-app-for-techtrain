@@ -3,7 +3,7 @@ import { getAllSledData } from "./utils/sled";
 
 function App() {
   const initialURL =
-    "https://railway-react-bulletin-board.herokuapp.com";
+    "https://railway-react-bulletin-board.herokuapp.com/threads";
     //this URL cannot activate and cannnot get the info from here.
   const [loading, setLoading] = useState(true);
 
