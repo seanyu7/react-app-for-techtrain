@@ -2,30 +2,35 @@ import { useEffect, useState } from "react";
 import { getAllSledData } from "./utils/sled";
 
 function App() {
+  const fetchSledData = async () => {
+    let res = await getAllSledData(initialURL);
+    setData(res);
+  };
+
   const initialURL =
     "https://railway-react-bulletin-board.herokuapp.com/threads";
-    //this URL cannot activate and cannnot get the info from here.
-  const [loading, setLoading] = useState(true);
+
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetchSledData = async () => {
-      let res = await getAllSledData(initialURL);
-      console.log(res.posts);
-      setLoading(false);
-    };
     fetchSledData();
   }, []);
 
   return (
     <div className="App">
-      {loading ? (
-        <h1>loading now...</h1>
-        //asyncにて非同期処理した処理が正常に完了するまではこのLoading now という文字が表示される。終わり次第下記内容のコードが走りsuccessfully loadedと表示される。le
-      ) : (
-        <>
-          <h1>Successfully downloaded</h1>
-        </>
-      )}
+      <>
+        <div className="cardContainer">
+          {data.length > 0 ? (
+            data.map((item) => (
+              <div className="card" key={item.id}>
+                <h2>{item.title}</h2>
+              </div>
+            ))
+          ) : (
+            <h1>Loading now...</h1>
+          )}
+        </div>
+      </>
     </div>
   );
 }
