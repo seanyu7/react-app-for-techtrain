@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { getAllSledData } from "./utils/sled";
+import "./App.css";
+import Post from "./components/Post";
 
 function App() {
   const fetchSledData = async () => {
     let res = await getAllSledData(initialURL);
+    console.log(res);
     setData(res);
   };
 
@@ -23,7 +26,7 @@ function App() {
           {data.length > 0 ? (
             data.map((item) => (
               <div className="card" key={item.id}>
-                <h2>{item.title}</h2>
+                <li>{item.title}</li>
               </div>
             ))
           ) : (
@@ -31,6 +34,9 @@ function App() {
           )}
         </div>
       </>
+      <div>
+        <Post />
+      </div>
     </div>
   );
 }
