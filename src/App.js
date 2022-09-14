@@ -21,6 +21,9 @@ function App() {
 
   return (
     <div className="App">
+      <div>
+        <Post />
+      </div>
       <>
         <div className="cardContainer">
           {data.length > 0 ? (
@@ -34,9 +37,7 @@ function App() {
           )}
         </div>
       </>
-      <div>
-        <Post />
-      </div>
+      
     </div>
   );
 }
