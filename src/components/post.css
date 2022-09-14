@@ -7,4 +7,13 @@
 
 .postContainer{
     background-color: rgb(234, 204, 176);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+    gap: 10px;
+    padding:0px 40px;
+    box-shadow: 5px 9px 15px -5px rgba(167, 165, 165, 0.75);
 }
