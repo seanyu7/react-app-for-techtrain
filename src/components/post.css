@@ -1,9 +1,4 @@
-.post{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-}
+
 
 .postContainer{
     background-color: rgb(234, 204, 176);
