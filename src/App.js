@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllSledData } from "./utils/sled";
 import "./App.css";
-import Post from "./components/Post";
+
 
 function App() {
   const fetchSledData = async () => {
@@ -19,10 +19,23 @@ function App() {
     fetchSledData();
   }, []);
 
+  const [title, setTitle] = useState("");
+
+  const createPost = () =>{
+    console.log(title)
+  }
+
   return (
     <div className="App">
-      <div>
-        <Post />
+      <div className="post">
+        <div className="postContainer">
+          <h1>Creating a new title</h1>
+          <div className="inputPost">
+            <div>Title</div>
+            <input type="text" placeholder="Put in your title here" onChange={(e)=> setTitle(e.target.value)}/>
+            <button className="postButton" onClick={createPost}>click</button>
+          </div>
+        </div>
       </div>
       <>
         <div className="cardContainer">
@@ -37,7 +50,6 @@ function App() {
           )}
         </div>
       </>
-      
     </div>
   );
 }
