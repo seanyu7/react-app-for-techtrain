@@ -23,6 +23,7 @@ function App() {
 
   const createPost = () =>{
     console.log(title)
+    //どこになんのデータが入っているのかを確認するためのコード
   }
 
   return (
