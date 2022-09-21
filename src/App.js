@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { getAllSledData } from "./utils/sled";
 import "./App.css";
-
+import axios from "axios";
 
 function App() {
   const fetchSledData = async () => {
     let res = await getAllSledData(initialURL);
-    console.log(res);
-    setData(res);
+    //console.log(res);
+    //setData(res);
   };
 
   const initialURL =
@@ -21,10 +21,13 @@ function App() {
 
   const [title, setTitle] = useState("");
 
-  const createPost = () =>{
-    console.log(title)
-    //どこになんのデータが入っているのかを確認するためのコード
-  }
+  const createPost = () => {
+    axios.post(`initialURL`, {
+      title
+    });
+  };
+
+  
 
   return (
     <div className="App">
@@ -33,19 +36,26 @@ function App() {
           <h1>Creating a new title</h1>
           <div className="inputPost">
             <div>Title</div>
-            <input type="text" placeholder="Put in your title here" onChange={(e)=> setTitle(e.target.value)}/>
-            <button className="postButton" onClick={createPost}>click</button>
+            <input
+              type="text"
+              placeholder="Put in your title here"
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <button className="postButton" onClick={createPost}>
+              click
+            </button>
           </div>
         </div>
       </div>
       <>
         <div className="cardContainer">
           {data.length > 0 ? (
+            (console.log(data),
             data.map((item) => (
               <div className="card" key={item.id}>
                 <li>{item.title}</li>
               </div>
-            ))
+            )))
           ) : (
             <h1>Loading now...</h1>
           )}
