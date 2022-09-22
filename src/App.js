@@ -22,7 +22,7 @@ function App() {
   const [title, setTitle] = useState("");
 
   const createPost = () => {
-    axios.post(`initialURL`, {
+    axios.post(`https://railway-react-bulletin-board.herokuapp.com/threads`, {
       title
     });
   };
