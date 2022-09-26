@@ -6,8 +6,10 @@ import axios from "axios";
 function App() {
   const fetchSledData = async () => {
     let res = await getAllSledData(initialURL);
+    //let res = await axios.get(initialURL);
     //console.log(res);
-    //setData(res);
+
+    setData(res);
   };
 
   const initialURL =
@@ -23,11 +25,9 @@ function App() {
 
   const createPost = () => {
     axios.post(`https://railway-react-bulletin-board.herokuapp.com/threads`, {
-      title
+      title: title,
     });
   };
-
-  
 
   return (
     <div className="App">
@@ -50,12 +50,11 @@ function App() {
       <>
         <div className="cardContainer">
           {data.length > 0 ? (
-            (console.log(data),
             data.map((item) => (
               <div className="card" key={item.id}>
                 <li>{item.title}</li>
               </div>
-            )))
+            ))
           ) : (
             <h1>Loading now...</h1>
           )}
