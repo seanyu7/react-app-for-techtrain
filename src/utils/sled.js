@@ -4,5 +4,6 @@ export const getAllSledData = (url) => {
       .then((res) => res.json())
       .then((data) => resolve(data));
      
-  });
+  }
+  );
 };
