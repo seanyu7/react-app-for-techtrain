@@ -4,19 +4,18 @@ import "./App.css";
 import axios from "axios";
 
 function App() {
-  const fetchSledData = async () => {
-    let res = await getAllSledData(initialURL);
-    //let res = await axios.get(initialURL);
-    //console.log(res);
-    setData(res);
-  };
-
   const initialURL =
     "https://railway-react-bulletin-board.herokuapp.com//threads?offset=5000";
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    const fetchSledData = async () => {
+      let res = await getAllSledData(initialURL);
+      //let res = await axios.get(initialURL);
+      //console.log(data);
+      setData(res);
+    };
     fetchSledData();
   }, []);
 
@@ -31,7 +30,7 @@ function App() {
         console.log(res);
         fetchSledData();
       });
-      //５０００番台のIDをイニシャルURLの後に書くと自分が入力したものが反映されているのを確認できる
+    //５０００番台のIDをイニシャルURLの後に書くと自分が入力したものが反映されているのを確認できる
   };
 
   return (
