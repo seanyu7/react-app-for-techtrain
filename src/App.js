@@ -31,6 +31,7 @@ function App() {
         fetchSledData();
       });
     //５０００番台のIDをイニシャルURLの後に書くと自分が入力したものが反映されているのを確認できる
+    //google chromeの検証ツールのnetworkタブで確認できる
   };
 
   return (
