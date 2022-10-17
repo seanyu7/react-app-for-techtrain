@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllSledData } from "./utils/sled";
+import { getAllThreadData } from "./utils/thread";
 import "./App.css";
 import axios from "axios";
 
@@ -10,13 +10,13 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetchSledData = async () => {
-      let res = await getAllSledData(initialURL);
+    const fetchThreadData = async () => {
+      let res = await getAllThreadData(initialURL);
       //let res = await axios.get(initialURL);
       //console.log(data);
       setData(res);
     };
-    fetchSledData();
+    fetchThreadData();
   }, []);
 
   const [title, setTitle] = useState("");
@@ -28,7 +28,7 @@ function App() {
       })
       .then((res) => {
         console.log(res);
-        fetchSledData();
+        fetchThreadData();
       });
     //５０００番台のIDをイニシャルURLの後に書くと自分が入力したものが反映されているのを確認できる
     //google chromeの検証ツールのnetworkタブで確認できる
